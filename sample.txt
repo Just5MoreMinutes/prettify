@@ -1,0 +1,37 @@
+from prettify import *
+
+prettify.addColor('light_green', '#5dde75')
+prettify.addColor('delft_blue', '#2c3461')
+
+prettify.addPalette('main_palette', ['#4A5759', '#B0C4B1', '#F7E1D7', 'delft_blue'])
+prettify.paletteSettings(primary='default', secondary=['highlight', 'notice', 'warning'], tercary=None)
+prettify.usePalette('main_palette')
+
+prettify.muteRegular()
+
+def some_function(x,y,z):
+    do something ...
+    print('process terminated') # -> won't print due to .muteRegular()
+    pprinter('<notice>process <u>terminated</u>!</notice>) # -> will still be colored due to palette
+
+pprinter('this is <light_green>test</light_green>!)
+
+prettify.unmuteRegular()
+-----------------------------------------------------------------------------------------------------------------
+from prettify import *
+
+sample = ['this', 'is', 'a', 'list']
+pprinter(sample)
+
+OUTPUT:
+sample (list): 'this', 'is', 'a', 'list'
+-----------------------------------------------------------------------------------------------------------------
+from prettify import *
+
+sample = ['this', 'is', 'a', ['nested', 'list'], '!']
+pprinter(sample)
+
+OUTPUT:
+sample (nested-list): 'this', 'is', 'a'                   '!'
+                                     |_ 'nested', 'list', _|
+-----------------------------------------------------------------------------------------------------------------
