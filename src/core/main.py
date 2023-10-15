@@ -15,9 +15,16 @@ VERSION: 0.0.1 (alpha)
 ##################################################
 from prettify import rgb, hex, converter
 from err import NOCOLOREXCEPTION
+from pparser import (parser, secondary_parser, styleHandler)
 
 ##################################################
 #                      MAIN                      #
 ##################################################
 def pprint(str_inpt:str, *further:list) -> str:
-    ...
+    completed = []
+    parser.textSplitter(str_inpt)
+    parser.findAllCorresponding()
+    parser.convertAllColors()
+    parser.printCompleted()
+    converted = parser.provideCompleted()
+    print(''.join(str(i) for i in converted))

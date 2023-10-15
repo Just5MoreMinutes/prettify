@@ -53,10 +53,10 @@ class StyledPrinter:
 #: prettify main class
 class prettify:
 
-    col_list = { }
+    col_list = { 'red': '\033[38;2;252;0;0m' }
     pal_list = { }
     elm_list = { }
-    reset    = reset = '\033[0m'
+    reset    = '\033[0m'
 
     def addColor(self, name, col):
         #: prettify.addColor('light_green', 'rgb(93, 222, 117)')
@@ -88,4 +88,4 @@ class prettify:
             return self.elm_list
 
 prettify = prettify()
-StyledPrinter = StyledPrinter()
+StyledPrinter = StyledPrinter('','')

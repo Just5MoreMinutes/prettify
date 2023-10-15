@@ -4,7 +4,7 @@ prettify.addColor('light_green', '#5dde75')
 prettify.addColor('delft_blue', '#2c3461')
 
 prettify.addPalette('main_palette', ['#4A5759', '#B0C4B1', '#F7E1D7', 'delft_blue'])
-prettify.paletteSettings(primary='default', secondary=['highlight', 'notice', 'warning'], tercary=None)
+prettify.paletteSettings(primary='default', secondary=['highlight', 'notice', 'warning'], tertiary=None)
 prettify.usePalette('main_palette')
 
 prettify.muteRegular()
