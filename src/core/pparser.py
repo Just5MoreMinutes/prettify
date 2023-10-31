@@ -225,5 +225,5 @@ class styleHandler:
         #        palettes.
         completed = parser.provideCompleted()
 
-styleHandler     = styleHandler()     
+styleHandler     = styleHandler()
 secondary_parser = secondary_parser()

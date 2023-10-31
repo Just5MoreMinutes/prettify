@@ -53,7 +53,15 @@ class StyledPrinter:
 #: prettify main class
 class prettify:
 
-    col_list = { 'red': '\033[38;2;252;0;0m' }
+    col_list = { 'red': '\033[38;2;252;0;0m',
+                 'blue': '\033[38;2;0;0;255m',
+                 'green': '\033[38;2;0;255;0m',
+                 'yellow':  '\033[38;2;255;255;0m',
+                 'purple': '\033[38;2;160;32;240m',
+                 'orange': '\033[38;2;255;165;0m', 
+                 'light_red': '\033[38;2;255;204;203m',
+                 'light_blue': '\033[38;2;173;216;230m',
+                 'light_green': '\033[38;2;144;238;144m' }
     pal_list = { }
     elm_list = { }
     reset    = '\033[0m'

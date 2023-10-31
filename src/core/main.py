@@ -13,6 +13,9 @@ VERSION: 0.0.1 (alpha)
 ##################################################
 #                    IMPORTS                     #
 ##################################################
+import sys
+sys.dont_write_bytecode = True
+
 from prettify import rgb, hex, converter
 from err import NOCOLOREXCEPTION
 from pparser import (parser, secondary_parser, styleHandler)
