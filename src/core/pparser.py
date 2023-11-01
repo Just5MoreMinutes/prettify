@@ -1,8 +1,7 @@
 ##################################################
 #                    IMPORTS                     #
 ##################################################
-from presets import preset_list
-from prettify import (prettify, rgb, hex,
+from pfunctions import (prettify, rgb, hex,
                       converter)
 from err import (NOCOLOREXCEPTION, EXITSEQUENCE, 
                  NOELEMENTEXCEPTION, UNKNOWNCOLOREXCEPTION)
