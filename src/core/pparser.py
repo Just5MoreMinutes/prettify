@@ -76,12 +76,16 @@ class parser:
         take care of replacing the tag with a corresponding escape
         sequence.
         """
-        reset = prettify.reset
+        reset    = prettify.reset
+        elements = prettify.returnList('elm')
         for i in self.completed:
             #: close-tag
             if i.startswith('</'):
-                self.completed[self.completed.index(i)] = reset # -> NOTE: keep it at that for NOW
-                pass
+                if i[2:-1] in elements:
+                    pass
+                else:
+                    self.completed[self.completed.index(i)] = reset # -> NOTE: keep it at that for NOW
+                    pass
             #: color-tags
             if i[1:-1] in prettify.returnList('col') and i.startswith('<'):
                 self.completed[self.completed.index(i)] = prettify.returnList('col')[i[1:-1]] # -> replaces current index with col dict value
@@ -107,8 +111,8 @@ class parser:
             if i.startswith('<'):
                 if i[1] == '#':
                     self.completed[self.completed.index(i)] = hex(i[1:-1])
-            if i.startswith('rgb('):
-                _rgb = i[4:-1].split(',')
+            if i.startswith('<rgb('):
+                _rgb = i[5:-2].split(',')
                 self.completed[self.completed.index(i)] = rgb(int(_rgb[0]),int(_rgb[1]),int(_rgb[2]))
     
     def convertAllElements(self) -> str:
@@ -116,7 +120,15 @@ class parser:
         Converts all elements remaining in the 'completed' list and
         resets them accordingly.
         """
-        ...
+        elements = prettify.returnList('elm')
+        for i in self.completed:
+            if i.startswith('<'):
+                if i[1:-1] in elements:
+                    self.completed[self.completed.index(i)] = elements[i[1:-1]]
+
+            if i.startswith('</'):
+                if i[2:-1] in elements:
+                    self.completed[self.completed.index(i)] = elements['end_'+str(i[2:-1])]
 
     def provideCompleted(self) -> completed: return self.completed
     def printCompleted(self) -> str: print(self.completed)

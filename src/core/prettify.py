@@ -63,7 +63,17 @@ class prettify:
                  'light_blue': '\033[38;2;173;216;230m',
                  'light_green': '\033[38;2;144;238;144m' }
     pal_list = { }
-    elm_list = { }
+    elm_list = { 'bold': '\033[1m',
+                 'underline': '\033[4m',
+                 'warning': '\033[48;2;255;0;0m \033[1m',
+                 'notice': '\033[48;2;255;255;0m',
+                 'italic': '\033[3m',
+                 
+                 'end_bold': '\033[22m',
+                 'end_underline': '\033[24m',
+                 'end_warning': '\033[49m \033[22m',
+                 'end_notice': '\033[49m',
+                 'end_italic': '\033[23m' }
     reset    = '\033[0m'
 
     def addColor(self, name, col):

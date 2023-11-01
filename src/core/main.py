@@ -28,6 +28,7 @@ def pprint(str_inpt:str, *further:list) -> str:
     parser.textSplitter(str_inpt)
     parser.findAllCorresponding()
     parser.convertAllColors()
+    parser.convertAllElements()
     parser.printCompleted()
     converted = parser.provideCompleted()
     print(''.join(str(i) for i in converted))
